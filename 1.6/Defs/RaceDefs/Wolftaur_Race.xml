@@ -20,13 +20,97 @@
         <!-- The following are all parts of the Humanoid Alien Race framework. -->
         <!-- Please read the HAR Wiki at https://github.com/erdelf/AlienRaces/wiki to see what you can add here! -->
         <alienRace>
-            <generalSettings></generalSettings>
-            <graphicPaths></graphicPaths>
-            <styleSettings></styleSettings>
-            <thoughtSettings></thoughtSettings>
-            <relationSettings></relationSettings>
-            <raceRestriction></raceRestriction>
-            <compatibility></compatibility>
+            <generalSettings>
+				<!-- adds forced race traits, doesn't count for regular trait limit -->
+				<forcedRaceTraitEntries>
+					<!-- bisexual wolves!!!! -->
+					<li>
+						<defName>Bisexual</defName>
+					</li>
+				</forcedRaceTraitEntries>
+				
+				<!-- add traits you don't want here -->
+				<disallowedTraits>
+					<li>
+						<defName>DislikesMen</defName>
+					</li>
+					<li>
+						<defName>DislikesWomen</defName>
+					</li>
+				</disallowedTraits>
+				
+				<!-- probably a good idea to add in case someone isn't using Blunt Social Fights -->
+				<maxDamageForSocialfight>4</maxDamageForSocialfight>
+				
+				<!-- lets them use all human surgery recipes, double check if OK with custom parts? -->
+				<humanRecipeImport>true</humanRecipeImport>
+				
+				<!-- customise graphical aspects of the wolves -->
+				<alienPartGenerator>
+				
+					<!-- skin and hair color genes take precedence over color channels, REMEMBER TO DISABLE THE GENES IN RACE RESTRICTIONS -->
+					<colorChannels>
+						<li>
+							<name>skin</name>
+							<first Class="ColorGenerator_Options">
+								<options>
+								<!-- EG FROM KONGUORO RACE -->
+									<!-- Golden -->
+									<li>
+										<weight>10</weight>
+										<only>RGBA(204,153,102,255)</only>
+									</li>
+							</first>
+						</li>
+						<li>
+							<name>hair</name>
+							<first Class="ColorGenerator_Options">
+							  <options>
+								<li>
+								  <weight>10</weight>
+								  <only>RGBA(0.000, 1.000, 0.000, 1.000)</only>
+								</li>
+								<li>
+								  <weight>10</weight>
+								  <only>RGBA(0, 128, 255, 255)</only>
+								</li>
+								<li>
+								  <weight>10</weight>
+								  <only>RGBA(0.000, 0.000, 1.000, 1.000)</only>
+								</li>
+							  </options>
+							</first>
+							<second Class="ColorGenerator_Single">
+							  <color>RGBA(128, 255, 0, 255)</color>
+							</second>
+						</li>
+					</colorChannels>
+				</alienPartGenerator>
+			</generalSettings>
+			
+            <graphicPaths>
+			
+			</graphicPaths>
+			
+            <styleSettings>
+			
+			</styleSettings>
+			
+            <thoughtSettings>
+			
+			</thoughtSettings>
+			
+            <relationSettings>
+			
+			</relationSettings>
+			
+            <raceRestriction>
+			
+			</raceRestriction>
+			
+            <compatibility>
+			
+			</compatibility>
         </alienRace>
     </AlienRace.ThingDef_AlienRace>
 
