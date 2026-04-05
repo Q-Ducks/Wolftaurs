@@ -47,7 +47,20 @@
 				
 				<!-- customise graphical aspects of the wolves -->
 				<alienPartGenerator>
-				
+					
+					<!-- head types required as we are inheriting from basepawn -->
+					<headTypes Inherit="False">
+						<li>Wolftaur_Head</li>
+					</headTypes>
+					
+					<!-- for simplicity, will only use Hulk bodytype -->
+					<bodyTypes Inherit="False">
+						<li>Hulk</li>
+						<!-- Biotech compat? Don't plan on getting it so not tested -->
+						<li MayRequire="Ludeon.RimWorld.Biotech">Baby</li>
+						<li MayRequire="Ludeon.RimWorld.Biotech">Child</li>
+					</bodyTypes>
+					
 					<!-- skin and hair color genes take precedence over color channels, REMEMBER TO DISABLE THE GENES IN RACE RESTRICTIONS -->
 					<colorChannels>
 						<li>
@@ -86,6 +99,27 @@
 						</li>
 					</colorChannels>
 				</alienPartGenerator>
+					<bodyAddons>
+						<li>
+						<!-- Settings for first BodyAddon -->
+						</li>
+						<li>
+						<!-- Settings for second BodyAddon -->
+						</li>
+						<li>
+						<!-- Settings for third BodyAddon, and so on... -->
+						</li>
+					</bodyAddons>
+					
+				</alienPartGenerator>
+			
+				<!-- Biotech compat section, I have no biotech so it is untested! -->
+				<reproduction>
+					<!-- any gender can reproduce -->
+					<fertilizingGender>Either</fertilizingGender>
+					<gestatingGender>Either</gestatingGender>
+				</reproduction>
+			
 			</generalSettings>
 			
             <graphicPaths>
