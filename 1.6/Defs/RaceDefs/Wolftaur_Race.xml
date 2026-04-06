@@ -63,85 +63,116 @@
 					
 					<!-- skin and hair color genes take precedence over color channels, REMEMBER TO DISABLE THE GENES IN RACE RESTRICTIONS -->
 					<colorChannels>
-						<li>
-							<name>skin</name>
-							<first Class="ColorGenerator_Options">
-								<options>
-								<!-- EG FROM KONGUORO RACE -->
-									<!-- Golden -->
-									<li>
-										<weight>10</weight>
-										<only>RGBA(204,153,102,255)</only>
-									</li>
-							</first>
-						</li>
-						<li>
-							<name>hair</name>
-							<first Class="ColorGenerator_Options">
-							  <options>
-								<li>
-								  <weight>10</weight>
-								  <only>RGBA(0.000, 1.000, 0.000, 1.000)</only>
-								</li>
-								<li>
-								  <weight>10</weight>
-								  <only>RGBA(0, 128, 255, 255)</only>
-								</li>
-								<li>
-								  <weight>10</weight>
-								  <only>RGBA(0.000, 0.000, 1.000, 1.000)</only>
-								</li>
-							  </options>
-							</first>
-							<second Class="ColorGenerator_Single">
-							  <color>RGBA(128, 255, 0, 255)</color>
-							</second>
-						</li>
+						
 					</colorChannels>
-				</alienPartGenerator>
 					<bodyAddons>
+						<!-- extended graphics should only be needed if graphics are displayed when specific hediff present -->
+						<!-- taurbody settings -->
 						<li>
-						<!-- Settings for first BodyAddon -->
+
+							<path>Common\Textures\Things\Wolftaur\Body\taurbody</path>
+							<conditions>
+								<BodyPart>
+									<bodyPartLabel>taur body</bodyPartLabel>
+									<drawWithoutPart>false</drawWithoutPart>
+								</BodyPart>
+								<RotStage>Fresh,Rotting</RotStage>
+								<!-- removes taur body whne in bed -->
+								<Posture>
+									<drawnStanding>true</drawnStanding>
+									<drawnLaying>true</drawnLaying>
+									<drawnInBed>false</drawnInBed>
+								</Posture>
+							</conditions>
 						</li>
-						<li>
-						<!-- Settings for second BodyAddon -->
-						</li>
-						<li>
-						<!-- Settings for third BodyAddon, and so on... -->
-						</li>
+						<!-- might add ears in the future? -->
 					</bodyAddons>
 					
 				</alienPartGenerator>
 			
 				<!-- Biotech compat section, I have no biotech so it is untested! -->
-				<reproduction>
+				<reproduction MayRequire="Ludeon.RimWorld.Biotech">
 					<!-- any gender can reproduce -->
 					<fertilizingGender>Either</fertilizingGender>
 					<gestatingGender>Either</gestatingGender>
 				</reproduction>
-			
 			</generalSettings>
 			
+			<!-- overrides default texture paths -->
             <graphicPaths>
-			
+			<!-- assume I need this to have nongendered heads -->
+				<head>
+					<path>Common\Textures\Things\Wolftaur\Head</path>
+				</head>
+				<!-- dead :( -->
+				<skeleton>Things/Pawn/Animal/Wolf_Timber/Dessicated_Wolf_Timber</skeleton>
 			</graphicPaths>
 			
+			<!-- hair, beard tattoo style settings -->
+			<!-- will just disable everything for now and see what to do with hair -->
             <styleSettings>
-			
+				<li>
+					<key>HairDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
+				<li>
+					<key>BeardDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
+				<li>
+					<key>TattooDef</key>
+					<value>
+						<hasStyle>false</hasStyle>
+					</value>
+				</li>
 			</styleSettings>
 			
+			<!-- thoughts that can or can't be received, and replacement thoughts -->
             <thoughtSettings>
-			
+				<!-- ground cold and hard, wolf soft and warm -->
+				<cannotReceiveThoughts>
+					<li>SleptOnGround</li>
+					<li>Naked</li>
+				</cannotReceiveThoughts>
 			</thoughtSettings>
 			
+			<!-- pawn relations between members of race, don't think I need this -->
             <relationSettings>
 			
 			</relationSettings>
 			
             <raceRestriction>
-			
+			<blackGeneList>
+					<!-- they have fur already -->
+					<li MayRequire="Ludeon.RimWorld.Biotech">Furskin</li>
+				</blackGeneList>
+				<blackGeneTags>
+					<!-- they have tails and fur already -->
+					<!-- no hair or beard styles as they are disabled -->
+					<li>Tail</li>
+					<li>HairStyle</li>
+					<li>BeardStyle</li>
+					<li>Fur</li>
+				</blackGeneTags>
+				<!-- not sure what these do but the races I used as reference blacklist these -->
+				<blackEndoCategories>
+					<li>Melanin</li>
+					<li>HairColor</li>
+					<li>BodyType</li>
+					<li>Ears</li>
+					<li>Nose</li>
+					<li>Jaw</li>
+					<li>Head</li>
+					<!-- impid mini horns appear over eyes -->
+					<li>Headbone</li>
+				</blackEndoCategories>
 			</raceRestriction>
 			
+			<!-- mod compatibility for alien races-->
             <compatibility>
 			
 			</compatibility>

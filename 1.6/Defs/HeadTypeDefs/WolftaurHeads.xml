@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- add ungendered heads -->
+	<HeadTypeDef ParentName="AverageBase">
+		<defName>Wolftaur_Head</defName>
+		<graphicPath>Common\Textures\Things\Wolftaur\Head\Wolftaur_Head</graphicPath>
+		<gender>None</gender>
+	</HeadTypeDef>
+</Defs>
