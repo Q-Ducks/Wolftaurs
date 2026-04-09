@@ -447,7 +447,7 @@
           </groups>
         </li>
 		
-		<!-- this is where the base leg defs go -->
+		<!-- this is where the base leg defs would go, if we had regular legs -->
 		<!-- since we have an entire new lower body it's time to do fun stuff -->
 		<!-- lower tauric body will contain 4 legs, pair of lungs, kindeys, lower stomach, heart, lower set of bones (spine, ribcage, pelvis etc)-->
 		<!-- most of this can be copied again from base human defs with renaming probably -->
@@ -467,10 +467,18 @@
 			<parts>
 			<!-- adding bones first, copied from Torso -->
 				<li>
+					<def>Waist</def> <!-- waist is a bone right -->
+					<coverage>0</coverage>
+					<height>Bottom</height>
+					<groups>
+					<li>Waist</li>
+					</groups>
+				</li>
+				<li>
 					<def>Ribcage</def>
 					<coverage>0.036</coverage>
 					<depth>Inside</depth>
-					<customLabel>lower ribcage</customLabel>
+					<customLabel>tauric ribcage</customLabel>
 					<groups>
 					<li>Torso</li>
 					</groups>
@@ -480,7 +488,7 @@
 					<def>Sternum</def>
 					<coverage>0.015</coverage>
 					<depth>Inside</depth>
-					<customLabel>lower sternum</customLabel>
+					<customLabel>tauric sternum</customLabel>
 					<groups>
 					<li>Torso</li>
 					</groups>
@@ -491,7 +499,7 @@
 					<coverage>0.025</coverage>
 					<height>Bottom</height>
 					<depth>Inside</depth>
-					<customLabel>lower pelvis</customLabel>
+					<customLabel>tauric pelvis</customLabel>
 					<groups>
 					<li>Torso</li>
 					</groups>
@@ -506,7 +514,316 @@
 					<li>Torso</li>
 					</groups>
 				</li>
-			
+				<li>
+					<def>Tail</def>
+					<coverage>0.07</coverage>
+				</li>
+				
+				<!-- fleshy bits -->
+				<!-- 2x the organs for harvesting if you enjoy that sort of thing -->
+				<li>
+					<def>Stomach</def>
+					<coverage>0.025</coverage>
+					<depth>Inside</depth>
+					<customLabel>tauric stomach</customLabel>
+					<groups>
+					<li>Torso</li>
+					</groups>
+				</li>
+				<li>
+					<def>Heart</def>
+					<coverage>0.020</coverage>
+					<depth>Inside</depth>
+					<customLabel>tauric heart</customLabel>
+					<groups>
+					<li>Torso</li>
+					</groups>
+				</li>
+				<li>
+					<def>Lung</def>
+					<customLabel>lower left lung</customLabel>
+					<coverage>0.025</coverage>
+					<depth>Inside</depth>
+					<groups>
+					<li>Torso</li>
+					</groups>
+				</li>
+				<li>
+					<def>Lung</def>
+					<customLabel>lower right lung</customLabel>
+					<coverage>0.025</coverage>
+					<depth>Inside</depth>
+					<groups>
+					<li>Torso</li>
+					</groups>
+				</li>
+				<li>
+					<def>Kidney</def>
+					<customLabel>lower right kidney</customLabel>
+					<coverage>0.017</coverage>
+					<depth>Inside</depth>
+					<groups>
+					<li>Torso</li>
+					</groups>
+				</li>
+				<li>
+					<def>Kidney</def>
+					<customLabel>lower left kidney</customLabel>
+					<coverage>0.017</coverage>
+					<depth>Inside</depth>
+					<groups>
+					<li>Torso</li>
+					</groups>
+				</li>
+				<li>
+					<def>Liver</def>
+					<customLabel>tauric liver</customLabel>
+					<coverage>0.025</coverage>
+					<depth>Inside</depth>
+					<groups>
+					<li>Torso</li>
+					</groups>
+				</li>
+				
+				<!-- legg -->
+				<!-- each legg def is just a copy of front left legg, see that section for comments -->
+				
+				<!-- FRONT LEFT LEGG -->
+				<li>
+				  <def>Leg</def>
+				  <customLabel>front left leg</customLabel>
+				  <coverage>0.14</coverage>
+				  <height>Bottom</height>
+				  <groups>
+					<li>Legs</li>
+				  </groups>
+				  <woundAnchorTag>LeftLeg</woundAnchorTag>
+				  <flipGraphic>true</flipGraphic>
+				  <parts>
+					<li>
+					  <def>Femur</def>
+					  <customLabel>front left femur</customLabel>
+					  <coverage>0.1</coverage>
+					  <depth>Inside</depth>
+					  <groups>
+						<li>Legs</li>
+					  </groups>
+					</li>
+					<li>
+					  <def>Tibia</def>
+					  <customLabel>front left tibia</customLabel>
+					  <coverage>0.1</coverage>
+					  <depth>Inside</depth>
+					  <groups>
+						<li>Legs</li>
+					  </groups>
+					</li>
+					
+					
+						<!-- feet -->
+					  <!-- will give them dog paws with toes -->
+					  <!-- or just a paw and no individual toes? hmm -->
+					  <!-- could use Paw instead of Foot from animal body def, so don't need to deal with 20 breakable toes -->
+					  <!-- will use paw I think -->
+					
+					<!-- FOOT DEF
+					<li>
+					  <def>Foot</def>
+					  <customLabel>front left footpaw</customLabel>
+					  <coverage>0.1</coverage>
+					  <flipGraphic>true</flipGraphic>
+					  <groups>
+						<li>Feet</li>
+					  </groups>
+					  
+					  <parts>
+						<li>
+						  <def>Toe</def>
+						  <customLabel>left dewclaw</customLabel>
+						  <coverage>0.06</coverage>
+						  <groups>
+							<li>Feet</li>
+						  </groups>
+						</li>
+						<li>
+						  <def>Toe</def>
+						  <customLabel>left fourth toe</customLabel>
+						  <coverage>0.07</coverage>
+						  <groups>
+							<li>Feet</li>
+						  </groups>
+						</li>
+						<li>
+						  <def>Toe</def>
+						  <customLabel>left middle toe</customLabel>
+						  <coverage>0.08</coverage>
+						  <groups>
+							<li>Feet</li>
+						  </groups>
+						</li>
+						<li>
+						  <def>Toe</def>
+						  <customLabel>left second toe</customLabel>
+						  <coverage>0.09</coverage>
+						  <groups>
+							<li>Feet</li>
+						  </groups>
+						</li>
+						<li>
+						  <def>Toe</def>
+						  <customLabel>left big toe</customLabel>
+						  <coverage>0.09</coverage>
+						  <groups>
+							<li>Feet</li>
+						  </groups>
+						</li>
+					  </parts>
+					</li>  -->
+					
+					<!-- PAW DEF -->
+					<li>
+					  <def>Paw</def>
+					  <customLabel>front left paw</customLabel>
+					  <coverage>0.15</coverage>
+					  <groups>
+						<li>FrontLeftPaw</li>
+					  </groups>
+					</li>
+				  </parts>
+				</li>
+				
+				<!-- FRONT RIGHT LEGG -->
+				<li>
+				  <def>Leg</def>
+				  <customLabel>front right leg</customLabel>
+				  <coverage>0.14</coverage>
+				  <height>Bottom</height>
+				  <groups>
+					<li>Legs</li>
+				  </groups>
+				  <woundAnchorTag>RightLeg</woundAnchorTag>
+				  <flipGraphic>true</flipGraphic>
+				  <parts>
+					<li>
+					  <def>Femur</def>
+					  <customLabel>front right femur</customLabel>
+					  <coverage>0.1</coverage>
+					  <depth>Inside</depth>
+					  <groups>
+						<li>Legs</li>
+					  </groups>
+					</li>
+					<li>
+					  <def>Tibia</def>
+					  <customLabel>front right tibia</customLabel>
+					  <coverage>0.1</coverage>
+					  <depth>Inside</depth>
+					  <groups>
+						<li>Legs</li>
+					  </groups>
+					</li>
+					<li>
+					  <def>Paw</def>
+					  <customLabel>front right paw</customLabel>
+					  <coverage>0.15</coverage>
+					  <groups>
+						<li>FrontRightPaw</li>
+					  </groups>
+					</li>
+				  </parts>
+				</li>
+				
+				
+				<!-- REAR LEFT LEGG -->
+				<li>
+				  <def>Leg</def>
+				  <customLabel>rear left leg</customLabel>
+				  <coverage>0.14</coverage>
+				  <height>Bottom</height>
+				  <groups>
+					<li>Legs</li>
+				  </groups>
+				  <woundAnchorTag>LeftLeg</woundAnchorTag>
+				  <flipGraphic>true</flipGraphic>
+				  <parts>
+					<li>
+					  <def>Femur</def>
+					  <customLabel>rear left femur</customLabel>
+					  <coverage>0.1</coverage>
+					  <depth>Inside</depth>
+					  <groups>
+						<li>Legs</li>
+					  </groups>
+					</li>
+					<li>
+					  <def>Tibia</def>
+					  <customLabel>rear left tibia</customLabel>
+					  <coverage>0.1</coverage>
+					  <depth>Inside</depth>
+					  <groups>
+						<li>Legs</li>
+					  </groups>
+					</li>
+					<li>
+					  <def>Paw</def>
+					  <customLabel>rear left paw</customLabel>
+					  <coverage>0.15</coverage>
+					  <!-- not in Bodies_Animal_Quadruped,, so probably not needed? -->
+					  <!--
+					  <groups>
+						<li>RearLeftPaw</li>
+					  </groups>
+					  -->
+					</li>
+				  </parts>
+				</li>
+				
+				
+				<!-- REAR RIGHT LEGG -->
+				<li>
+				  <def>Leg</def>
+				  <customLabel>rear right leg</customLabel>
+				  <coverage>0.14</coverage>
+				  <height>Bottom</height>
+				  <groups>
+					<li>Legs</li>
+				  </groups>
+				  <woundAnchorTag>RightLeg</woundAnchorTag>
+				  <flipGraphic>true</flipGraphic>
+				  <parts>
+					<li>
+					  <def>Femur</def>
+					  <customLabel>rear right femur</customLabel>
+					  <coverage>0.1</coverage>
+					  <depth>Inside</depth>
+					  <groups>
+						<li>Legs</li>
+					  </groups>
+					</li>
+					<li>
+					  <def>Tibia</def>
+					  <customLabel>rear right tibia</customLabel>
+					  <coverage>0.1</coverage>
+					  <depth>Inside</depth>
+					  <groups>
+						<li>Legs</li>
+					  </groups>
+					</li>
+					<li>
+					  <def>Paw</def>
+					  <customLabel>rear right paw</customLabel>
+					  <coverage>0.15</coverage>
+					  <!-- not in Bodies_Animal_Quadruped,, so probably not needed? -->
+					  <!--
+					  <groups>
+						<li>RearRightPaw</li>
+					  </groups>
+					  -->
+					</li>
+				  </parts>
+				</li>
+				
+				
 			</parts>
 		</li>
 
