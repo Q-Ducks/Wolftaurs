@@ -174,9 +174,28 @@
 			
 			<!-- mod compatibility for alien races-->
             <compatibility>
+				<isFlesh>true</isFlesh>
+				<isSentient>true</isSentient> 
+				<hasBlood>true</hasBlood>
 			
 			</compatibility>
         </alienRace>
+		
+		<!-- defines stats for race -->
+		<statBases>
+		
+		</statBases>
+		
+		<!-- defines attack kinds it seems -->
+		<tools>
+		
+		
+		</tools>
+		
+		<!-- defines more stats? -->
+		<race>
+		
+		</race>
     </AlienRace.ThingDef_AlienRace>
 
 </Defs>
