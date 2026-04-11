@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+<!-- need racesettings? -->
+
+<!-- need to define custom basepawn def like in ferian or lapelli race???-->
+
+
 
     <!-- This is the Def that represents your race. -->
     <!-- You can inherit from either "HumanRace" or "BasePawn" depending on what is easier to override. -->
@@ -167,7 +172,6 @@
 					<li>Nose</li>
 					<li>Jaw</li>
 					<li>Head</li>
-					<!-- impid mini horns appear over eyes -->
 					<li>Headbone</li>
 				</blackEndoCategories>
 			</raceRestriction>
@@ -183,7 +187,13 @@
 		
 		<!-- defines stats for race -->
 		<statBases>
-		
+			<ComfyTemperatureMin>-20</ComfyTemperatureMin> <!-- base wolf has -40 temp -->
+			<ComfyTemperatureMax>36</ComfyTemperatureMax>
+			<MoveSpeed>9.0</MoveSpeed> <!-- base human move speed is 4.6, double should be fast enough -->
+			<Flammability>1.0</Flammability>
+			<MiningSpeed>1.2</MiningSpeed>
+			<MeleeDodgeChance>1.1</MeleeDodgeChance>
+			
 		</statBases>
 		
 		<!-- defines attack kinds it seems -->
@@ -193,8 +203,113 @@
 		</tools>
 		
 		<!-- defines more stats? -->
+		<!-- Ripping these from lapelli and ferian which both use BasePawn and I have experience updating -->
 		<race>
-		
+			<!-- need this because it inherits from BasePawn -->
+			<renderTree>Humanlike</renderTree>
+			<thinkTreeMain>Humanlike</thinkTreeMain>
+            <thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
+            <intelligence>Humanlike</intelligence>
+            <makesFootprints>true</makesFootprints>
+            <lifeExpectancy>80</lifeExpectancy>
+			<!-- need to add this or else you can't heal properly -->
+			<bloodDef>Filth_Blood</bloodDef>
+			<leatherDef>Leather_Wolf</leatherDef>
+			<!-- unsure about meat, use wolf or human meat? -->
+			<useMeatFrom>Wolf_Timber</useMeatFrom>
+			<!-- <useMeatFrom>Human</useMeatFrom> -->
+			<!-- end of meat section -->
+			<body>Wolftaur_Body</body> <!-- using our custom bodydef -->
+			<nuzzleMtbHours>12</nuzzleMtbHours> <!-- nuzzling -->
+			<baseBodySize>3.0</baseBodySize> <!-- double size of warg -->
+			<baseHealthScale>3.0</baseHealthScale> <!-- wolves are 3x body size so 3x health should be ok? -->
+			<baseHungerRate>3.0</baseHungerRate> <!-- the wolves hunger for the sweet taste of kibble -->
+			<foodType>OmnivoreHuman</foodType>
+			<gestationPeriodDays>90</gestationPeriodDays>
+			<litterSizeCurve>
+				<points>
+				<li>(0.5, 0)</li>
+				<li>(1, 1)</li>
+				<li>(1.01, 0.01)</li>
+				<li>(2, 0)</li>
+				</points>
+			</litterSizeCurve>
+            <lifeStageAges>
+				<li>
+					<def>HumanlikeBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>HumanlikeChild</def>
+					<minAge>5</minAge>
+				</li>
+				<li>
+					<def>HumanlikeTeenager</def>
+					<minAge>12</minAge>
+				</li>
+				<li>
+					<def>HumanlikeAdult</def>
+					<minAge>18</minAge>
+				</li>
+            </lifeStageAges>
+			<!-- biotech stuff -->
+			<lifeStageWorkSettings MayRequire="Ludeon.RimWorld.Biotech">
+				<Firefighter>7</Firefighter>
+				<Patient>0</Patient>
+				<Doctor>10</Doctor>
+				<PatientBedRest>0</PatientBedRest>
+				<Childcare MayRequire="Ludeon.RimWorld.Biotech">0</Childcare>
+				<BasicWorker>7</BasicWorker>
+				<Warden>10</Warden>
+				<Handling>7</Handling>
+				<Cooking>7</Cooking>
+				<Hunting>7</Hunting>
+				<Construction>10</Construction>
+				<Growing>7</Growing>
+				<Mining>7</Mining>
+				<PlantCutting>7</PlantCutting>
+				<Smithing>13</Smithing>
+				<Tailoring>7</Tailoring>
+				<Art>10</Art>
+				<Crafting>7</Crafting>
+				<Hauling>3</Hauling>
+				<Cleaning>3</Cleaning>
+				<Research>13</Research>
+			</lifeStageWorkSettings>
+			
+			<ageGenerationCurve>
+                <points>
+                    <li MayRequire="Ludeon.RimWorld.Biotech">(0,0)</li>
+					<li MayRequire="Ludeon.RimWorld.Biotech">(0.001,43)</li>
+					<li MayRequire="Ludeon.RimWorld.Biotech">(8,86)</li>
+					<li MayRequire="Ludeon.RimWorld.Biotech">(12.5,118)</li>  <!-- Exclude 12.5-13 years to avoid spawning pawns who are very close to becoming adults -->  
+					<li MayRequire="Ludeon.RimWorld.Biotech">(12.51,0)</li>  
+					<li MayRequire="Ludeon.RimWorld.Biotech">(13,0)</li>      
+					<li MayRequire="Ludeon.RimWorld.Biotech">(13.001,122)</li><!-- End exclude -->
+					<li MayRequire="Ludeon.RimWorld.Biotech">(13.999,130)</li>
+					<li>(14,0)</li>
+					<li MayRequire="Ludeon.RimWorld.Biotech">(14.001,130)</li>
+					<li>(16,100)</li>
+					<li>(50,100)</li>
+					<li>(60,30)</li>
+					<li>(70,18)</li>
+					<li>(80,10)</li>
+					<li>(90,3)</li>
+					<li>(100,0)</li>
+                </points>
+            </ageGenerationCurve>
+			
+			<hediffGiverSets>
+				<li>OrganicStandard</li>
+				<li>Human</li>
+			</hediffGiverSets>
+			
+			<!-- Sounds -->
+			<soundWounded>Pawn_Dog_Injured</soundWounded> <!-- wolf noises -->
+			<soundDeath>Pawn_Dog_Death</soundDeath>
+			<soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
+            <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
+            <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
 		</race>
     </AlienRace.ThingDef_AlienRace>
 
