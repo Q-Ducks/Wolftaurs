@@ -73,16 +73,17 @@
 					<bodyAddons>
 						<!-- extended graphics should only be needed if graphics are displayed when specific hediff present -->
 						<!-- taurbody settings -->
+						<!-- name format for body parts is "Wolftaur_[BODYPART]_[DIRECTION] -->
 						<li>
 
-							<path>Common\Textures\Things\Wolftaur\Body\taurbody</path>
+							<path>Common\Textures\Things\Wolftaur\Body\Wolftaur_Body</path>
 							<conditions>
 								<BodyPart>
 									<bodyPartLabel>taur body</bodyPartLabel>
 									<drawWithoutPart>false</drawWithoutPart>
 								</BodyPart>
 								<RotStage>Fresh,Rotting</RotStage>
-								<!-- removes taur body whne in bed -->
+								<!-- removes taur body when in bed -->
 								<Posture>
 									<drawnStanding>true</drawnStanding>
 									<drawnLaying>true</drawnLaying>
@@ -90,7 +91,8 @@
 								</Posture>
 							</conditions>
 						</li>
-						<!-- might add ears in the future? -->
+						<!-- ADD EARS -->
+						<!-- ADD TAILS -->
 					</bodyAddons>
 					
 				</alienPartGenerator>
@@ -104,6 +106,7 @@
 			</generalSettings>
 			
 			<!-- overrides default texture paths -->
+			<!-- might need to add paths for ears and taurbody?? -->
             <graphicPaths>
 			<!-- assume I need this to have nongendered heads -->
 				<head>
@@ -115,6 +118,8 @@
 			
 			<!-- hair, beard tattoo style settings -->
 			<!-- will just disable everything for now and see what to do with hair -->
+			<!-- current plan, have universal head shape and give different hairstyles -->
+			<!-- vulpoids have hair separated into front and back, might be useful to take a look -->
             <styleSettings>
 				<li>
 					<key>HairDef</key>
@@ -202,7 +207,7 @@
 		
 		</tools>
 		
-		<!-- defines more stats? -->
+		<!-- defines base game stats? -->
 		<!-- Ripping these from lapelli and ferian which both use BasePawn and I have experience updating -->
 		<race>
 			<!-- need this because it inherits from BasePawn -->
