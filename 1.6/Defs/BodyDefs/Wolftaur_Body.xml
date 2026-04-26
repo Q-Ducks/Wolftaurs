@@ -601,8 +601,8 @@
 				  <flipGraphic>true</flipGraphic>
 				  <parts>
 					<li>
-					  <def>Femur</def>
-					  <customLabel>front left femur</customLabel>
+					  <def>Humerus</def>
+					  <customLabel>front left humerus</customLabel>
 					  <coverage>0.1</coverage>
 					  <depth>Inside</depth>
 					  <groups>
@@ -610,8 +610,8 @@
 					  </groups>
 					</li>
 					<li>
-					  <def>Tibia</def>
-					  <customLabel>front left tibia</customLabel>
+					  <def>Radius</def>
+					  <customLabel>front left radius</customLabel>
 					  <coverage>0.1</coverage>
 					  <depth>Inside</depth>
 					  <groups>
@@ -705,8 +705,8 @@
 				  <flipGraphic>true</flipGraphic>
 				  <parts>
 					<li>
-					  <def>Femur</def>
-					  <customLabel>front right femur</customLabel>
+					  <def>Humerus</def>
+					  <customLabel>front right humerus</customLabel>
 					  <coverage>0.1</coverage>
 					  <depth>Inside</depth>
 					  <groups>
@@ -714,8 +714,8 @@
 					  </groups>
 					</li>
 					<li>
-					  <def>Tibia</def>
-					  <customLabel>front right tibia</customLabel>
+					  <def>Radius</def>
+					  <customLabel>front right radius</customLabel>
 					  <coverage>0.1</coverage>
 					  <depth>Inside</depth>
 					  <groups>

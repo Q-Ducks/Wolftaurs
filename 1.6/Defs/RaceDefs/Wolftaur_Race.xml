@@ -20,7 +20,7 @@
         <label>wolftaur</label>
 
         <!-- This is the description text that is shown when someone inspects a member of your race. -->
-        <description>Tauric wolf people</description>
+        <description>Tauric wolf people, genetically engineered as a replacement for heavy machinery in colonies.</description>
 
         <!-- The following are all parts of the Humanoid Alien Race framework. -->
         <!-- Please read the HAR Wiki at https://github.com/erdelf/AlienRaces/wiki to see what you can add here! -->
@@ -199,23 +199,121 @@
 			<Flammability>1.0</Flammability>
 			<MiningSpeed>1.2</MiningSpeed>
 			<MeleeDodgeChance>1.1</MeleeDodgeChance>
+			<CarryingCapacity>300</CarryingCapacity> <!-- they are designed to replace heavy machinery -->
+			<MarketValue>4500</MarketValue> <!-- base human is 1750, this seems right??? -->
+			<Mass>180</Mass> <!-- base human is 60kg -->
+			<LeatherAmount>150</LeatherAmount> <!-- base is 75-->
+			<MeatAmount>300</MeatAmount> <!-- base is 140-->
 			
+			<!-- work stats -->
+			<WorkSpeedGlobal>1.1</WorkSpeedGlobal>
+			<ResearchSpeed>0.9</ResearchSpeed> <!-- slightly worse at fine detail work -->
+			<GlobalLearningFactor>1</GlobalLearningFactor>
+			<MiningSpeed>1.2</MiningSpeed> <!-- strong wolf -->
+			<ConstructionSpeed>1.2</ConstructionSpeed>
 		</statBases>
 		
 		<!-- defines attack kinds it seems -->
 		<tools>
-		
+			<!-- big chomp -->
+			<li>
+				<label>teeth</label>
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>10</power>
+				<cooldownTime>1</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+			</li>
+			
+			<!-- punching with hands, ripped from base humanlike -->
+			<li>
+				<label>left fist</label>
+				<labelNoLocation>fist</labelNoLocation>
+				<capacities>
+				  <li>Blunt</li>
+				</capacities>
+				<power>8.2</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+				  <extraMeleeDamages>
+					<li>
+					  <def>Stun</def>
+					  <amount>14</amount>
+					</li>
+				  </extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			<li>
+				<label>right fist</label>
+				<labelNoLocation>fist</labelNoLocation>
+				<capacities>
+				  <li>Blunt</li>
+				</capacities>
+				<power>8.2</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<surpriseAttack>
+				  <extraMeleeDamages>
+					<li>
+					  <def>Stun</def>
+					  <amount>14</amount>
+					</li>
+				  </extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			
+			<!-- scratches with lower paws, ripped from base WildCanines, specifically wargs-->
+			<li>
+				<label>left claw</label>
+				<labelNoLocation>claw</labelNoLocation>
+				<capacities>
+				  <li>Scratch</li>
+				</capacities>
+				<power>10.9</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+				<surpriseAttack>
+				  <extraMeleeDamages>
+					<li>
+					  <def>Stun</def>
+					  <amount>14</amount>
+					</li>
+				  </extraMeleeDamages>
+				</surpriseAttack>
+				<chanceFactor>0.5</chanceFactor>
+			  </li>
+			  <li>
+				<label>right claw</label>
+				<labelNoLocation>claw</labelNoLocation>
+				<capacities>
+				  <li>Scratch</li>
+				</capacities>
+				<power>10.9</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+				<surpriseAttack>
+				  <extraMeleeDamages>
+					<li>
+					  <def>Stun</def>
+					  <amount>14</amount>
+					</li>
+				  </extraMeleeDamages>
+				</surpriseAttack>
+				<chanceFactor>0.5</chanceFactor>
+			  </li>
 		
 		</tools>
 		
 		<!-- defines base game stats? -->
-		<!-- Ripping these from lapelli and ferian which both use BasePawn and I have experience updating -->
 		<race>
 			<!-- need this because it inherits from BasePawn -->
 			<renderTree>Humanlike</renderTree>
 			<thinkTreeMain>Humanlike</thinkTreeMain>
             <thinkTreeConstant>HumanlikeConstant</thinkTreeConstant>
             <intelligence>Humanlike</intelligence>
+			<nameCategory>HumanStandard</nameCategory> <!-- I assume this gives them regular human namegen -->
             <makesFootprints>true</makesFootprints>
             <lifeExpectancy>80</lifeExpectancy>
 			<!-- need to add this or else you can't heal properly -->
@@ -228,10 +326,12 @@
 			<body>Wolftaur_Body</body> <!-- using our custom bodydef -->
 			<nuzzleMtbHours>12</nuzzleMtbHours> <!-- nuzzling -->
 			<baseBodySize>3.0</baseBodySize> <!-- double size of warg -->
-			<baseHealthScale>3.0</baseHealthScale> <!-- wolves are 3x body size so 3x health should be ok? -->
+			<baseHealthScale>2.0</baseHealthScale> <!-- 2x health should be ok? -->
 			<baseHungerRate>3.0</baseHungerRate> <!-- the wolves hunger for the sweet taste of kibble -->
-			<foodType>OmnivoreHuman</foodType>
+			<foodType>OmnivoreHuman, CarnivoreAnimal</foodType>
 			<gestationPeriodDays>90</gestationPeriodDays>
+			<manhunterOnDamageChance>0.20</manhunterOnDamageChance>
+			<manhunterOnTameFailChance>0.02</manhunterOnTameFailChance>
 			<litterSizeCurve>
 				<points>
 				<li>(0.5, 0)</li>
@@ -249,9 +349,13 @@
 					<def>HumanlikeChild</def>
 					<minAge>5</minAge>
 				</li>
+				<li MayRequire="Ludeon.RimWorld.Biotech">
+					<def>HumanlikePreTeenager</def>
+					<minAge>9</minAge>
+				</li>
 				<li>
 					<def>HumanlikeTeenager</def>
-					<minAge>12</minAge>
+					<minAge>13</minAge>
 				</li>
 				<li>
 					<def>HumanlikeAdult</def>
@@ -317,6 +421,19 @@
             <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
             <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
 		</race>
+		
+		<!--anomaly compat? -->
+		<comps>
+			<li MayRequire="Ludeon.RimWorld.Anomaly" Class="CompProperties_HoldingPlatformTarget">
+				<baseEscapeIntervalMtbDays>120</baseEscapeIntervalMtbDays>
+				<getsColdContainmentBonus>true</getsColdContainmentBonus>
+			</li>
+			<li MayRequire="Ludeon.RimWorld.Anomaly" Class="CompProperties_Studiable">
+				<frequencyTicks>120000</frequencyTicks>
+				<minMonolithLevelForStudy>1</minMonolithLevelForStudy>
+			<requiresImprisonment>true</requiresImprisonment>
+			</li>
+		</comps>
     </AlienRace.ThingDef_AlienRace>
 
 </Defs>
