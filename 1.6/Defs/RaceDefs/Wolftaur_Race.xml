@@ -53,7 +53,7 @@
 				<!-- customise graphical aspects of the wolves -->
 				<alienPartGenerator>
 					
-					<!-- head types required as we are inheriting from basepawn -->
+					<!-- head types required as we are inheriting from basepawn, custom def made for ungendered heads -->
 					<headTypes Inherit="False">
 						<li>Wolftaur_Head</li>
 					</headTypes>
@@ -72,8 +72,12 @@
 					</colorChannels>
 					<bodyAddons>
 						<!-- extended graphics should only be needed if graphics are displayed when specific hediff present -->
-						<!-- taurbody settings -->
 						<!-- name format for body parts is "Wolftaur_[BODYPART]_[DIRECTION] -->
+						<!-- layerOffsets seem to be -ve for bottom, +ve for top -->
+						<!-- layers for east facing are: tail < taurbody < humanbody < leftear < head < hair < rightear -->
+						<!-- tail must be below taurbody, ears and hair must be above head (they cover up unwanted lines) -->
+						
+						<!-- TAURBODY -->
 						<li>
 
 							<path>Common\Textures\Things\Wolftaur\Body\Wolftaur_Body</path>
@@ -91,8 +95,183 @@
 								</Posture>
 							</conditions>
 						</li>
-						<!-- ADD EARS -->
-						<!-- ADD TAILS -->
+						
+						<!-- ADD EARS -->						
+						<!-- RIGHT EAR -->
+						<li>
+							<conditions>
+								<Apparel>
+									<!-- I kinda want visible ears because I like it, but here is option to disable when hat is equipped -->
+									<!-- <hiddenUnderApparelFor> -->
+										<!-- <li>FullHead</li> -->
+										<!-- <li>UpperHead</li> -->
+									<!-- </hiddenUnderApparelFor> -->
+								</Apparel>
+								<BodyPart>
+									<bodyPart>Ear</bodyPart>
+									<bodyPartLabel>right ear</bodyPartLabel>
+								</BodyPart>
+								<RotStage>Fresh,Rotting</RotStage>
+							</conditions>
+							<shaderType>Cutout</shaderType>
+							<drawSize>1</drawSize>
+							<path>Common\Textures\Things\Wolftaur\Ears\Wolftaur_EarRight</path>
+							<inFrontOfBody>True</inFrontOfBody>
+							<alignWithHead>true</alignWithHead>
+							<colorChannel>skin</colorChannel>
+							<scaleWithPawnDrawsize>true</scaleWithPawnDrawsize>
+							<defaultOffset>Center</defaultOffset>
+							<offsets>
+								<south>
+									<layerOffset>0.2</layerOffset> <!-- ears in front of head -->
+									<bodyTypes>
+										<Hulk>(0,0)</Hulk>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Child>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Baby>
+									</bodyTypes>
+								</south>
+								<north>
+									<layerOffset>0.2</layerOffset> <!-- ears in front of head -->
+									<bodyTypes>
+										<Hulk>(0,0)</Hulk>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">(0,0))</Child>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Baby>
+									</bodyTypes>
+								</north>
+								<east>
+									<layerOffset>0.2</layerOffset> <!-- ears in front of head -->
+									<bodyTypes>
+										<Hulk>(0,0))</Hulk>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">(0,0))</Child>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Baby>
+									</bodyTypes>
+								</east>
+								<west>
+									<!-- draw right ear behind head when facing west, vice versa done for left ear-->
+									<layerOffset>-0.2</layerOffset>
+									<bodyTypes>
+										<Hulk>(0,0)</Hulk>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Child>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Baby>
+									</bodyTypes>
+								</west>
+							</offsets>
+						</li>
+						
+						<!-- LEFT EAR -->
+						<li>
+							<conditions>
+								<Apparel>
+									<!-- I kinda want visible ears because I like it, but here is option to disable when hat is equipped -->
+									<!-- <hiddenUnderApparelFor> -->
+										<!-- <li>FullHead</li> -->
+										<!-- <li>UpperHead</li> -->
+									<!-- </hiddenUnderApparelFor> -->
+								</Apparel>
+								<BodyPart>
+									<bodyPart>Ear</bodyPart>
+									<bodyPartLabel>left ear</bodyPartLabel>
+								</BodyPart>
+								<RotStage>Fresh,Rotting</RotStage>
+							</conditions>
+							<shaderType>Cutout</shaderType>
+							<drawSize>1</drawSize>
+							<path>Common\Textures\Things\Wolftaur\Ears\Wolftaur_EarLeft</path>
+							<inFrontOfBody>True</inFrontOfBody>
+							<alignWithHead>true</alignWithHead>
+							<colorChannel>skin</colorChannel>
+							<scaleWithPawnDrawsize>true</scaleWithPawnDrawsize>
+							<defaultOffset>Center</defaultOffset>
+							<offsets>
+								<south>
+									<layerOffset>0.2</layerOffset> <!-- ears in front of head -->
+									<bodyTypes>
+										<Hulk>(0,0)</Hulk>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Child>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Baby>
+									</bodyTypes>
+								</south>
+								<north>
+									<layerOffset>0.2</layerOffset> <!-- ears in front of head -->
+									<bodyTypes>
+										<Hulk>(0,0)</Hulk>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">(0,0))</Child>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Baby>
+									</bodyTypes>
+								</north>
+								<east>
+									<layerOffset>-0.2</layerOffset> <!-- ears behind head -->
+									<bodyTypes>
+										<Hulk>(0,0))</Hulk>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">(0,0))</Child>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Baby>
+									</bodyTypes>
+								</east>
+								<west>
+									<layerOffset>0.2</layerOffset> <!-- ear in front of head -->
+									<bodyTypes>
+										<Hulk>(0,0)</Hulk>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Child>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Baby>
+									</bodyTypes>
+								</west>
+							</offsets>
+						</li>
+						
+						
+						<!-- TAIL -->
+						<li>
+							<shaderType>Cutout</shaderType> <!-- not sure what this does but adding it anyway -->
+							<drawSize>1</drawSize>
+							<scaleWithPawnDrawsize>true</scaleWithPawnDrawsize>
+							<path>Common\Textures\Things\Wolftaur\Tail\Wolftaur_Tail</path>
+							<inFrontOfBody>false</inFrontOfBody>
+							<colorChannel>skin</colorChannel> <!-- everything uses skin channel -->
+							<defaultOffset>Center</defaultOffset>
+							<offsets>
+								<south>
+								<layerOffset>-0.3</layerOffset>
+									<bodyTypes>
+										<Hulk>(0,0)</Hulk>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">(0,0.)</Child>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Baby>
+									</bodyTypes>
+								</south>
+								<north>
+								<layerOffset>-0.3</layerOffset>
+									<bodyTypes>
+										<Hulk>(0,0)</Hulk>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Child>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Baby>
+									</bodyTypes>
+								</north>
+								<east>
+								<layerOffset>-0.3</layerOffset>
+									<bodyTypes>
+										<Hulk>(0,0)</Hulk>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Child>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Baby>
+									</bodyTypes>
+								</east>
+							</offsets>
+							<conditions>
+								<BodyPart>
+									<!-- bodyPart needs an exact BodyPartDef name -->
+									<bodyPart>Tail</bodyPart>
+									<!-- bodyPartLabel lets it not be drawn when body part is missing -->
+									<bodyPartLabel>wolf tail</bodyPartLabel>
+								</BodyPart>
+								<Apparel>
+								<!-- don't think any apparel should affect it -->
+								</Apparel>
+								<Posture>
+									<drawnStanding>true</drawnStanding>
+  									<drawnLaying>true</drawnLaying>
+  									<drawnInBed>false</drawnInBed>
+								</Posture>
+								<RotStage>Fresh,Rotting</RotStage>
+    						</conditions>
+						</li>
 						<!-- ADD HAIR-->
 					</bodyAddons>
 					
