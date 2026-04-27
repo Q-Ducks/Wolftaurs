@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- ==================== Rural ==================== -->
+
+  <HairDef>
+    <defName>BriefPonytail</defName>
+    <label>brief ponytail</label>
+    <styleGender>Male</styleGender>
+    <texPath>Things/Pawn/Humanlike/Hairs/Gaston</texPath>
+    <category>Rural</category>
+    <styleTags>
+      <li>QD_Wolftaur</li>
+    </styleTags>
+  </HairDef>
+  
+  
+  </Defs>

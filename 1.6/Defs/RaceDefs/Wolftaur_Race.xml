@@ -273,6 +273,57 @@
     						</conditions>
 						</li>
 						<!-- ADD HAIR-->
+						
+						<!-- HAIR? -->
+						<!-- might need to make custom HairDef -->
+						<!-- <li> -->
+							<!-- <drawSize>1</drawSize> -->
+							<!-- <scaleWithPawnDrawsize>true</scaleWithPawnDrawsize> -->
+							<!-- <path>Common\Textures\Things\Wolftaur\Hair\Wolftaur_Hair</path> -->
+							<!-- <inFrontOfBody>false</inFrontOfBody> -->
+							<!-- <colorChannel>skin</colorChannel> -->
+							<!-- <alignWithHead>true</alignWithHead> -->
+							<!-- <offsets> -->
+								<!-- <south> -->
+								<!-- <layerOffset>0.3</layerOffset> -->
+									<!-- <bodyTypes> -->
+										<!-- <Hulk>(0,0)</Hulk> -->
+										<!-- <Child MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Child> -->
+										<!-- <Baby MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Baby> -->
+									<!-- </bodyTypes> -->
+								<!-- </south> -->
+								<!-- <north> -->
+								<!-- <layerOffset>0.3</layerOffset> -->
+									<!-- <bodyTypes> -->
+										<!-- <Hulk>(0,0)</Hulk> -->
+										<!-- <Child MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Child> -->
+										<!-- <Baby MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Baby> -->
+									<!-- </bodyTypes> -->
+								<!-- </north> -->
+								<!-- <east> -->
+								<!-- <layerOffset>0.3</layerOffset> -->
+									<!-- <bodyTypes> -->
+										<!-- <Hulk>(0,0)</Hulk> -->
+										<!-- <Child MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Child> -->
+										<!-- <Baby MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Baby> -->
+									<!-- </bodyTypes> -->
+								<!-- </east> -->
+							<!-- </offsets> -->
+							<!-- <conditions> -->
+								<!-- <BodyPart><bodyPart>Head</bodyPart></BodyPart> -->
+								<!-- <Apparel> -->
+								<!-- <hiddenUnderApparelFor> -->
+									<!-- <li>FullHead</li> -->
+								<!-- </hiddenUnderApparelFor> -->
+								<!-- </Apparel> -->
+								<!-- <Posture> -->
+									<!-- <drawnStanding>true</drawnStanding> -->
+  									<!-- <drawnLaying>true</drawnLaying> -->
+  									<!-- <drawnInBed>true</drawnInBed> -->
+								<!-- </Posture> -->
+								<!-- <RotStage>Fresh,Rotting</RotStage> -->
+    						<!-- </conditions> -->
+						<!-- </li> -->
 					</bodyAddons>
 					
 				</alienPartGenerator>
@@ -297,9 +348,7 @@
 			</graphicPaths>
 			
 			<!-- hair, beard tattoo style settings -->
-			<!-- will just disable everything for now and see what to do with hair -->
-			<!-- current plan, have universal head shape and give different hairstyles -->
-			<!-- vulpoids have hair separated into front and back, might be useful to take a look -->
+			<!-- made custom hairdef and styletag, will hopefully work??? -->
             <styleSettings>
 				<li>
 					<key>HairDef</key>
