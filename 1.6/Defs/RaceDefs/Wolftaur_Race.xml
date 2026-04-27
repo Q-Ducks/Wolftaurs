@@ -353,7 +353,22 @@
 				<li>
 					<key>HairDef</key>
 					<value>
-						<hasStyle>false</hasStyle>
+						<hasStyle>true</hasStyle>
+						<styleTags>
+							<li>QD_Wolftaur</li>
+						</styleTags>
+						<bannedTags>
+							<li>Shaved</li>
+							<li>Bald</li>
+							<li>Balding</li>
+							<li>HairShort</li>
+							<li>HairLong</li>
+							<li>Wild</li>
+							<li>Rural</li>
+							<li>Urban</li>
+							<li>Punk</li>
+							<li>Soldier</li>
+						</bannedTags>
 					</value>
 				</li>
 				<li>
