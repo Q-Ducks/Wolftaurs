@@ -68,7 +68,47 @@
 					
 					<!-- skin and hair color genes take precedence over color channels, REMEMBER TO DISABLE THE GENES IN RACE RESTRICTIONS -->
 					<colorChannels>
-						
+						<li>
+							<!-- i am skin -->
+							<name>skin</name>
+							<first Class="ColorGenerator_Options">
+								<options>
+									<!-- fox orange -->
+									<li>
+										<weight>10</weight> <!-- having the same weight should give equal chance to each -->
+										<only>RGBA(178,100,34,255)</only>
+									</li>
+									<!-- maned wolf orange -->
+									<li>
+										<weight>10</weight>
+										<only>RGBA(130,88,50,255)</only>
+									</li>
+									<!-- ych blue -->
+									<li>
+										<weight>1</weight> <!-- rare colour!-->
+										<only>RGBA(75,205,255,255)</only>
+									</li>
+									<!-- arctic white -->
+									<li>
+										<weight>10</weight>
+										<only>RGBA(247,241,220,255)</only>
+									</li>
+									<!-- timber wolf grey -->
+									<li>
+										<weight>10</weight>
+										<only>RGBA(110,106,103,255)</only>
+									</li>
+									<!-- coyote... grey? brown??? idk I'm colourblind -->
+									<li>
+										<weight>10</weight>
+										<only>RGBA(173,154,133,255)</only>
+									</li>
+								</options>
+							</first>
+							<second Class="ColorGenerator_Single">
+								<color>RGBA(255, 255, 255, 255)</color>
+							</second>
+						</li>
 					</colorChannels>
 					<bodyAddons>
 						<!-- extended graphics should only be needed if graphics are displayed when specific hediff present -->
@@ -80,7 +120,7 @@
 						<!-- TAURBODY -->
 						<li>
 
-							<path>Common\Textures\Things\Wolftaur\Body\Wolftaur_Body</path>
+							<path>Wolftaur/Body/Wolftaur_Body</path>
 							<conditions>
 								<BodyPart>
 									<bodyPartLabel>taur body</bodyPartLabel>
@@ -94,6 +134,48 @@
 									<drawnInBed>false</drawnInBed>
 								</Posture>
 							</conditions>
+							<shaderType>Cutout</shaderType>
+							<drawSize>2</drawSize>
+							<inFrontOfBody>True</inFrontOfBody>
+							<alignWithHead>true</alignWithHead>
+							<colorChannel>skin</colorChannel>
+							<scaleWithPawnDrawsize>true</scaleWithPawnDrawsize>
+							<defaultOffset>Center</defaultOffset>
+							<offsets>
+								<south>
+									<layerOffset>-0.2</layerOffset>
+									<bodyTypes>
+										<Hulk>(0,0)</Hulk>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Child>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Baby>
+									</bodyTypes>
+								</south>
+								<north>
+									<layerOffset>-0.2</layerOffset> 
+									<bodyTypes>
+										<Hulk>(0,0)</Hulk>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">(0,0))</Child>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Baby>
+									</bodyTypes>
+								</north>
+								<east>
+									<layerOffset>-0.2</layerOffset> 
+									<bodyTypes>
+										<Hulk>(0,0))</Hulk>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">(0,0))</Child>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Baby>
+									</bodyTypes>
+								</east>
+								<west>
+									
+									<layerOffset>-0.2</layerOffset>
+									<bodyTypes>
+										<Hulk>(0,0)</Hulk>
+										<Child MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Child>
+										<Baby MayRequire="Ludeon.RimWorld.Biotech">(0,0)</Baby>
+									</bodyTypes>
+								</west>
+							</offsets>
 						</li>
 						
 						<!-- ADD EARS -->						
@@ -114,8 +196,8 @@
 								<RotStage>Fresh,Rotting</RotStage>
 							</conditions>
 							<shaderType>Cutout</shaderType>
-							<drawSize>1</drawSize>
-							<path>Common\Textures\Things\Wolftaur\Ears\Wolftaur_EarRight</path>
+							<drawSize>2</drawSize>
+							<path>Wolftaur/Ears/Wolftaur_EarRight</path>
 							<inFrontOfBody>True</inFrontOfBody>
 							<alignWithHead>true</alignWithHead>
 							<colorChannel>skin</colorChannel>
@@ -175,8 +257,8 @@
 								<RotStage>Fresh,Rotting</RotStage>
 							</conditions>
 							<shaderType>Cutout</shaderType>
-							<drawSize>1</drawSize>
-							<path>Common\Textures\Things\Wolftaur\Ears\Wolftaur_EarLeft</path>
+							<drawSize>2</drawSize>
+							<path>Wolftaur/Ears/Wolftaur_EarLeft</path>
 							<inFrontOfBody>True</inFrontOfBody>
 							<alignWithHead>true</alignWithHead>
 							<colorChannel>skin</colorChannel>
@@ -222,9 +304,9 @@
 						<!-- TAIL -->
 						<li>
 							<shaderType>Cutout</shaderType> <!-- not sure what this does but adding it anyway -->
-							<drawSize>1</drawSize>
+							<drawSize>2</drawSize>
 							<scaleWithPawnDrawsize>true</scaleWithPawnDrawsize>
-							<path>Common\Textures\Things\Wolftaur\Tail\Wolftaur_Tail</path>
+							<path>Wolftaur/Tail/Wolftaur_Tail</path>
 							<inFrontOfBody>false</inFrontOfBody>
 							<colorChannel>skin</colorChannel> <!-- everything uses skin channel -->
 							<defaultOffset>Center</defaultOffset>
@@ -277,9 +359,9 @@
 						<!-- HAIR? -->
 						<!-- might need to make custom HairDef -->
 						<!-- <li> -->
-							<!-- <drawSize>1</drawSize> -->
+							<!-- <drawSize>2</drawSize> -->
 							<!-- <scaleWithPawnDrawsize>true</scaleWithPawnDrawsize> -->
-							<!-- <path>Common\Textures\Things\Wolftaur\Hair\Wolftaur_Hair</path> -->
+							<!-- <path>Wolftaur/Hair/Wolftaur_Hair</path> -->
 							<!-- <inFrontOfBody>false</inFrontOfBody> -->
 							<!-- <colorChannel>skin</colorChannel> -->
 							<!-- <alignWithHead>true</alignWithHead> -->
@@ -341,7 +423,7 @@
             <graphicPaths>
 			<!-- assume I need this to have nongendered heads -->
 				<head>
-					<path>Common\Textures\Things\Wolftaur\Head</path>
+					<path>Wolftaur/Head/</path>
 				</head>
 				<!-- dead :( -->
 				<skeleton>Things/Pawn/Animal/Wolf_Timber/Dessicated_Wolf_Timber</skeleton>
@@ -658,10 +740,10 @@
 			</hediffGiverSets>
 			
 			<!-- Sounds -->
-			<soundWounded>Pawn_Dog_Injured</soundWounded> <!-- wolf noises -->
-			<soundDeath>Pawn_Dog_Death</soundDeath>
+			<!-- wolf noises cause serious errors, but I'd like them to work someday -->
+			<!-- <soundWounded>Pawn_Dog_Injured</soundWounded> -->
+			<!-- <soundDeath>Pawn_Dog_Death</soundDeath> -->
 			<soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
-            <soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
             <soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
 		</race>
 		

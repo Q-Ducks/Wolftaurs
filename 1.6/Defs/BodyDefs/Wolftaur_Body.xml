@@ -3,7 +3,7 @@
 <!-- oh boy here we go -->
 <!-- copied base human body def as template, stats are base human unless commented -->
   <BodyDef>
-    <defName>PawnBody_Wolftaur</defName>
+    <defName>Wolftaur_Body</defName>
     <label>wolftaur</label>
     <corePart>
       <def>Torso</def>
@@ -453,7 +453,7 @@
 		<!-- most of this can be copied again from base human defs with renaming probably -->
 		
 		<!-- main tauric body -->
-		<1i>
+		<li>
 			<def>Body</def>
 			<coverage>0.50</coverage> <!-- taur body is large so 50% coverage should be right -->
 			<!-- height, depth, groups just copied from Torso -->
