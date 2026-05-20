@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-<!-- need racesettings? -->
-
-<!-- need to define custom basepawn def like in ferian or lapelli race???-->
 
 
 
@@ -116,6 +113,7 @@
 						<!-- layerOffsets seem to be -ve for bottom, +ve for top -->
 						<!-- layers for east facing are: tail < taurbody < humanbody < leftear < head < hair < rightear -->
 						<!-- tail must be below taurbody, ears and hair must be above head (they cover up unwanted lines) -->
+						<!-- NOTE: HAIR REMOVED AND INTEGRATED INTO HEAD SPRITE DUE TO ISSUES WITH IMPLEMENTATION -->
 						
 						<!-- TAURBODY -->
 						<li>
@@ -135,8 +133,8 @@
 								</Posture>
 							</conditions>
 							<shaderType>Cutout</shaderType>
-							<drawSize>2</drawSize>
-							<inFrontOfBody>True</inFrontOfBody>
+							<drawSize>1</drawSize>
+							<inFrontOfBody>false</inFrontOfBody> <!-- I think so?-->
 							<alignWithHead>true</alignWithHead>
 							<colorChannel>skin</colorChannel>
 							<scaleWithPawnDrawsize>true</scaleWithPawnDrawsize>
@@ -196,7 +194,7 @@
 								<RotStage>Fresh,Rotting</RotStage>
 							</conditions>
 							<shaderType>Cutout</shaderType>
-							<drawSize>2</drawSize>
+							<drawSize>1</drawSize>
 							<path>Wolftaur/Ears/Wolftaur_EarRight</path>
 							<inFrontOfBody>True</inFrontOfBody>
 							<alignWithHead>true</alignWithHead>
@@ -213,7 +211,7 @@
 									</bodyTypes>
 								</south>
 								<north>
-									<layerOffset>0.2</layerOffset> <!-- ears in front of head -->
+									<layerOffset>-0.2</layerOffset> <!-- ears in front of head, tried using positive value for this but didn't work? -->
 									<bodyTypes>
 										<Hulk>(0,0)</Hulk>
 										<Child MayRequire="Ludeon.RimWorld.Biotech">(0,0))</Child>
@@ -257,7 +255,7 @@
 								<RotStage>Fresh,Rotting</RotStage>
 							</conditions>
 							<shaderType>Cutout</shaderType>
-							<drawSize>2</drawSize>
+							<drawSize>1</drawSize>
 							<path>Wolftaur/Ears/Wolftaur_EarLeft</path>
 							<inFrontOfBody>True</inFrontOfBody>
 							<alignWithHead>true</alignWithHead>
@@ -274,7 +272,7 @@
 									</bodyTypes>
 								</south>
 								<north>
-									<layerOffset>0.2</layerOffset> <!-- ears in front of head -->
+									<layerOffset>-0.2</layerOffset> <!-- ears in front of head -->
 									<bodyTypes>
 										<Hulk>(0,0)</Hulk>
 										<Child MayRequire="Ludeon.RimWorld.Biotech">(0,0))</Child>
@@ -304,7 +302,7 @@
 						<!-- TAIL -->
 						<li>
 							<shaderType>Cutout</shaderType> <!-- not sure what this does but adding it anyway -->
-							<drawSize>2</drawSize>
+							<drawSize>1</drawSize>
 							<scaleWithPawnDrawsize>true</scaleWithPawnDrawsize>
 							<path>Wolftaur/Tail/Wolftaur_Tail</path>
 							<inFrontOfBody>false</inFrontOfBody>
@@ -430,27 +428,27 @@
 			</graphicPaths>
 			
 			<!-- hair, beard tattoo style settings -->
-			<!-- made custom hairdef and styletag, will hopefully work??? -->
+			<!-- made custom hairdef and styletag, did not work so will just disable this for now -->
             <styleSettings>
 				<li>
 					<key>HairDef</key>
 					<value>
-						<hasStyle>true</hasStyle>
-						<styleTags>
-							<li>QD_Wolftaur</li>
-						</styleTags>
-						<bannedTags>
-							<li>Shaved</li>
-							<li>Bald</li>
-							<li>Balding</li>
-							<li>HairShort</li>
-							<li>HairLong</li>
-							<li>Wild</li>
-							<li>Rural</li>
-							<li>Urban</li>
-							<li>Punk</li>
-							<li>Soldier</li>
-						</bannedTags>
+						<hasStyle>false</hasStyle> <!-- switch this to true if you figure out how to add hairstyles -->
+						<!-- <styleTags> -->
+							<!-- <li>QD_Wolftaur</li> -->
+						<!-- </styleTags> -->
+						<!-- <bannedTags> -->
+							<!-- <li>Shaved</li> -->
+							<!-- <li>Bald</li> -->
+							<!-- <li>Balding</li> -->
+							<!-- <li>HairShort</li> -->
+							<!-- <li>HairLong</li> -->
+							<!-- <li>Wild</li> -->
+							<!-- <li>Rural</li> -->
+							<!-- <li>Urban</li> -->
+							<!-- <li>Punk</li> -->
+							<!-- <li>Soldier</li> -->
+						<!-- </bannedTags> -->
 					</value>
 				</li>
 				<li>
@@ -712,7 +710,7 @@
 				<Research>13</Research>
 			</lifeStageWorkSettings>
 			
-			<ageGenerationCurve>
+			<ageGenerationCurve> <!-- copied from base humanlike -->
                 <points>
                     <li MayRequire="Ludeon.RimWorld.Biotech">(0,0)</li>
 					<li MayRequire="Ludeon.RimWorld.Biotech">(0.001,43)</li>
